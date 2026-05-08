@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -15,40 +16,6 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ]
 
-function StreamIcon() {
-  return (
-    <svg
-      width="32"
-      height="24"
-      viewBox="0 0 32 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M2 4 C6 4, 8 2, 12 2 C16 2, 18 4, 22 4 C26 4, 28 2, 32 2"
-        stroke="#1E3A5F"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <path
-        d="M0 12 C4 12, 6 10, 10 10 C14 10, 16 12, 20 12 C24 12, 26 10, 30 10 C31 10, 31.5 10.2, 32 10.5"
-        stroke="#1E3A5F"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <path
-        d="M2 20 C6 20, 8 22, 12 22 C16 22, 18 20, 22 20 C26 20, 28 22, 32 22"
-        stroke="#2E86C1"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        fill="none"
-      />
-    </svg>
-  )
-}
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -77,14 +44,15 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group" aria-label="North Stream Systems home">
-            <StreamIcon />
-            <span className="text-primary font-semibold text-lg leading-tight hidden sm:block">
-              North Stream Systems
-            </span>
-            <span className="text-primary font-semibold text-base leading-tight sm:hidden">
-              NSS
-            </span>
+          <Link href="/" className="flex items-center" aria-label="North Stream Systems home">
+            <Image
+              src="/photos/North Stream Systems Logo Full.png"
+              alt="North Stream Systems"
+              width={180}
+              height={50}
+              className="h-10 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}

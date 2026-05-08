@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const quickLinks = [
   { href: '/', label: 'Home' },
@@ -16,40 +17,6 @@ const serviceLinks = [
   'Cloud Infrastructure & Migration',
 ]
 
-function FooterStreamIcon() {
-  return (
-    <svg
-      width="28"
-      height="21"
-      viewBox="0 0 32 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M2 4 C6 4, 8 2, 12 2 C16 2, 18 4, 22 4 C26 4, 28 2, 32 2"
-        stroke="#AED6F1"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <path
-        d="M0 12 C4 12, 6 10, 10 10 C14 10, 16 12, 20 12 C24 12, 26 10, 30 10 C31 10, 31.5 10.2, 32 10.5"
-        stroke="#AED6F1"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <path
-        d="M2 20 C6 20, 8 22, 12 22 C16 22, 18 20, 22 20 C26 20, 28 22, 32 22"
-        stroke="#2E86C1"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        fill="none"
-      />
-    </svg>
-  )
-}
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -60,9 +27,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2.5 mb-3">
-              <FooterStreamIcon />
-              <span className="font-semibold text-base">North Stream Systems</span>
+            <div className="mb-3">
+              <Image
+                src="/photos/North Stream Systems Logo Full.png"
+                alt="North Stream Systems"
+                width={180}
+                height={50}
+                className="h-10 w-auto object-contain brightness-0 invert"
+              />
             </div>
             <p className="text-light-accent text-sm font-medium mb-2">Steady. Secure. Scalable.</p>
             <p className="text-white/60 text-sm leading-relaxed">

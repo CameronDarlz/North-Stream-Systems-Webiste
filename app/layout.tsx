@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     default: 'North Stream Systems',
   },
   description: 'Managed IT services built for UK SMBs. Steady. Secure. Scalable.',
+  icons: {
+    icon: '/photos/NSS Favicon.png',
+  },
 }
 
 export default function RootLayout({
