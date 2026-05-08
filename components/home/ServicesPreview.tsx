@@ -18,7 +18,6 @@ interface ServiceCard {
   name: string
   description: string
   href: string
-  accent?: boolean
 }
 
 const services: ServiceCard[] = [
@@ -63,9 +62,7 @@ const services: ServiceCard[] = [
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: {
-      staggerChildren: 0.08,
-    },
+    transition: { staggerChildren: 0.08 },
   },
 }
 
@@ -83,11 +80,11 @@ export default function ServicesPreview() {
     <section className="py-20 md:py-28 bg-white" aria-label="Services overview">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#1E3A5F' }}>
             Everything your business needs.{' '}
-            <span className="text-accent">One trusted partner.</span>
+            <span style={{ color: '#2E86C1' }}>One trusted partner.</span>
           </h2>
-          <p className="text-muted text-lg max-w-xl mx-auto">
+          <p className="text-lg max-w-xl mx-auto" style={{ color: '#6B7280' }}>
             From helpdesk to cloud infrastructure — we cover the full IT stack for UK SMBs.
           </p>
         </div>
@@ -105,14 +102,15 @@ export default function ServicesPreview() {
               <motion.div key={service.name} variants={cardVariants}>
                 <Link
                   href={service.href}
-                  className="group flex flex-col h-full p-6 bg-white border border-gray-100 rounded-xl hover:border-accent hover:-translate-y-1 transition-all duration-200 shadow-sm hover:shadow-md"
+                  className="group flex flex-col h-full p-8 bg-white rounded-xl hover:-translate-y-0.5 transition-all duration-200 shadow-md hover:shadow-lg"
+                  style={{ borderTop: '3px solid #2E86C1' }}
                 >
-                  <div className="w-12 h-12 rounded-lg bg-surface flex items-center justify-center mb-4 group-hover:bg-light-accent/30 transition-colors">
-                    <Icon size={22} className="text-accent" />
+                  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center mb-4 group-hover:bg-light-accent/30 transition-colors">
+                    <Icon size={22} style={{ color: '#2E86C1' }} />
                   </div>
-                  <h3 className="text-base font-semibold text-primary mb-2">{service.name}</h3>
-                  <p className="text-sm text-muted leading-relaxed flex-1">{service.description}</p>
-                  <div className="mt-4 text-accent text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                  <h3 className="text-xl font-semibold mb-2" style={{ color: '#1E3A5F' }}>{service.name}</h3>
+                  <p className="text-sm leading-relaxed flex-1" style={{ color: '#6B7280' }}>{service.description}</p>
+                  <div className="mt-4 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all" style={{ color: '#2E86C1' }}>
                     Learn more <ArrowRight size={14} />
                   </div>
                 </Link>
@@ -124,7 +122,7 @@ export default function ServicesPreview() {
           <motion.div variants={cardVariants}>
             <Link
               href="/services"
-              className="group flex flex-col items-center justify-center h-full p-6 bg-surface border border-dashed border-gray-200 rounded-xl hover:border-accent hover:-translate-y-1 transition-all duration-200 min-h-[180px]"
+              className="group flex flex-col items-center justify-center h-full p-8 bg-surface border border-dashed border-gray-200 rounded-xl hover:border-accent hover:-translate-y-0.5 transition-all duration-200 min-h-[180px]"
             >
               <div className="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center mb-3 group-hover:border-accent transition-colors">
                 <ArrowRight size={20} className="text-muted group-hover:text-accent transition-colors" />

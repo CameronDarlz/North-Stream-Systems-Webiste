@@ -6,29 +6,29 @@ import Link from 'next/link'
 export default function Hero() {
   return (
     <section
-      className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-white"
+      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-white"
       aria-label="Hero section"
     >
-      {/* Dot grid background */}
+      {/* Dot grid background — #AED6F1 at 10% opacity */}
       <div
-        className="absolute inset-0 opacity-60"
+        className="absolute inset-0"
         style={{
-          backgroundImage: `radial-gradient(circle, #D0D9E8 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(circle, rgba(174,214,241,0.45) 1px, transparent 1px)`,
           backgroundSize: '28px 28px',
         }}
         aria-hidden="true"
       />
 
-      {/* Gradient overlay to fade out the dots toward the edges */}
+      {/* Radial fade to keep centre clean */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse at center, transparent 40%, white 85%)',
+          background: 'radial-gradient(ellipse at center, transparent 35%, white 80%)',
         }}
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-32">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,8 +42,8 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-          className="text-5xl md:text-7xl font-bold text-primary leading-[1.05] tracking-tight mb-6"
+          transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
+          className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary leading-[1.05] tracking-tight mb-6"
         >
           Steady. Secure.{' '}
           <span className="text-accent">Scalable.</span>
@@ -52,8 +52,9 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-          className="text-lg md:text-xl text-muted max-w-2xl mx-auto leading-relaxed mb-10"
+          transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
+          className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10"
+          style={{ color: '#6B7280' }}
         >
           Managed IT services built for UK businesses that are serious about growth.
           We handle your technology so you can focus on what you do best.
@@ -62,18 +63,21 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+          transition={{ duration: 0.7, delay: 0.6, ease: 'easeOut' }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-primary text-white font-semibold text-base px-8 py-3.5 rounded-lg hover:bg-primary/90 transition-colors shadow-sm"
+            className="inline-flex items-center justify-center text-white font-semibold text-base px-8 py-4 rounded-lg transition-colors shadow-sm"
+            style={{ backgroundColor: '#1E3A5F' }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#152A45')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#1E3A5F')}
           >
             Talk to Us
           </Link>
           <Link
             href="/services"
-            className="inline-flex items-center justify-center border-2 border-primary text-primary font-semibold text-base px-8 py-3.5 rounded-lg hover:bg-surface transition-colors"
+            className="inline-flex items-center justify-center border-2 border-primary text-primary font-semibold text-base px-8 py-4 rounded-lg hover:bg-surface transition-colors"
           >
             Our Services
           </Link>

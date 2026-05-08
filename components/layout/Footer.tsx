@@ -17,34 +17,39 @@ const serviceLinks = [
   'Cloud Infrastructure & Migration',
 ]
 
-
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-primary text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="text-white" style={{ backgroundColor: '#1A1A2E' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div>
-            <div className="mb-3">
+            <div className="mb-4">
               <Image
                 src="/photos/North Stream Systems Logo Full.png"
                 alt="North Stream Systems"
-                width={180}
-                height={50}
-                className="h-10 w-auto object-contain brightness-0 invert"
+                width={200}
+                height={55}
+                style={{ objectFit: 'contain', width: 'auto', height: '55px' }}
+                className="h-14 w-auto brightness-0 invert"
               />
             </div>
-            <p className="text-light-accent text-sm font-medium mb-2">Steady. Secure. Scalable.</p>
-            <p className="text-white/60 text-sm leading-relaxed">
+            <p className="text-sm font-medium mb-2" style={{ color: '#AED6F1' }}>
+              Steady. Secure. Scalable.
+            </p>
+            <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
               Managed IT services built for UK businesses that are serious about growth.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold text-light-accent uppercase tracking-wider mb-4">
+            <h3
+              className="text-sm font-semibold uppercase tracking-wider mb-4"
+              style={{ color: '#AED6F1' }}
+            >
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -52,7 +57,10 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/70 text-sm hover:text-white transition-colors"
+                    className="text-sm transition-colors"
+                    style={{ color: 'rgba(255,255,255,0.6)' }}
+                    onMouseEnter={e => (e.currentTarget.style.color = '#AED6F1')}
+                    onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
                   >
                     {link.label}
                   </Link>
@@ -61,9 +69,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Services + Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-light-accent uppercase tracking-wider mb-4">
+            <h3
+              className="text-sm font-semibold uppercase tracking-wider mb-4"
+              style={{ color: '#AED6F1' }}
+            >
               Services
             </h3>
             <ul className="space-y-2 mb-6">
@@ -71,7 +82,10 @@ export default function Footer() {
                 <li key={service}>
                   <Link
                     href="/services"
-                    className="text-white/70 text-sm hover:text-white transition-colors"
+                    className="text-sm transition-colors"
+                    style={{ color: 'rgba(255,255,255,0.6)' }}
+                    onMouseEnter={e => (e.currentTarget.style.color = '#AED6F1')}
+                    onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
                   >
                     {service}
                   </Link>
@@ -79,25 +93,38 @@ export default function Footer() {
               ))}
             </ul>
 
-            {/* Contact Info */}
-            <h3 className="text-sm font-semibold text-light-accent uppercase tracking-wider mb-3">
+            <h3
+              className="text-sm font-semibold uppercase tracking-wider mb-3"
+              style={{ color: '#AED6F1' }}
+            >
               Contact
             </h3>
             <div className="space-y-1.5">
               <a
                 href="mailto:office@northstreamsystems.com"
-                className="block text-white/70 text-sm hover:text-white transition-colors"
+                className="block text-sm transition-colors"
+                style={{ color: 'rgba(255,255,255,0.6)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#AED6F1')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
               >
                 office@northstreamsystems.com
               </a>
-              <p className="text-white/60 text-sm">North Wales, UK</p>
+              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                North Wales, UK
+              </p>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="text-white/50 text-xs text-center sm:text-left">
+        <div
+          className="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
+          style={{ borderColor: 'rgba(46,134,193,0.3)' }}
+        >
+          <div
+            className="text-xs text-center sm:text-left"
+            style={{ color: 'rgba(255,255,255,0.4)' }}
+          >
             &copy; {currentYear} North Stream Systems Ltd. All rights reserved.
             <span className="ml-2 hidden sm:inline">|</span>
             <span className="block sm:inline sm:ml-2">Registered in England &amp; Wales</span>
@@ -107,7 +134,10 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-white/50 text-xs hover:text-white/80 transition-colors"
+                className="text-xs transition-colors"
+                style={{ color: 'rgba(255,255,255,0.4)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.8)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.4)')}
               >
                 {link.label}
               </Link>

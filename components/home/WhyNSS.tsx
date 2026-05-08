@@ -23,13 +23,13 @@ const pillars = [
 
 export default function WhyNSS() {
   return (
-    <section className="py-20 md:py-28 bg-surface" aria-label="Why North Stream Systems">
+    <section className="py-20 md:py-28" style={{ backgroundColor: '#F4F6F8' }} aria-label="Why North Stream Systems">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#1E3A5F' }}>
             IT support that actually supports you.
           </h2>
-          <p className="text-muted text-lg max-w-xl mx-auto">
+          <p className="text-lg max-w-xl mx-auto" style={{ color: '#6B7280' }}>
             We built NSS around the things that matter most to growing businesses.
           </p>
         </div>
@@ -40,13 +40,14 @@ export default function WhyNSS() {
             return (
               <div
                 key={pillar.title}
-                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
+                className="bg-white rounded-xl p-8 shadow-sm border-l-4"
+                style={{ borderLeftColor: '#AED6F1' }}
               >
                 <div className="w-14 h-14 rounded-xl bg-surface flex items-center justify-center mb-5">
-                  <Icon size={26} className="text-accent" />
+                  <Icon size={26} style={{ color: '#2E86C1' }} />
                 </div>
-                <h3 className="text-lg font-semibold text-primary mb-3">{pillar.title}</h3>
-                <p className="text-muted leading-relaxed">{pillar.description}</p>
+                <h3 className="text-lg font-semibold mb-3" style={{ color: '#1E3A5F' }}>{pillar.title}</h3>
+                <p className="leading-relaxed" style={{ color: '#6B7280' }}>{pillar.description}</p>
               </div>
             )
           })}
