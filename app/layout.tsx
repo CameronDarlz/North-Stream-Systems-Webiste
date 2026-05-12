@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="font-sans antialiased">
         <Header />
-        <main className="pt-16">
+        <main className="pt-44">
           {children}
         </main>
         <Footer />

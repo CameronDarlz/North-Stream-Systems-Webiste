@@ -40,7 +40,7 @@ export default function Header() {
       style={scrolled ? { boxShadow: '0 2px 20px rgba(30, 58, 95, 0.08)' } : undefined}
     >
       {/* Desktop: 3-column grid — logo | nav | cta */}
-      <div className="max-w-7xl mx-auto px-6 hidden md:grid grid-cols-3 items-center h-16">
+      <div className="max-w-7xl mx-auto px-6 hidden md:grid grid-cols-3 items-center h-44">
 
         {/* Left — Logo */}
         <div className="flex items-center">
