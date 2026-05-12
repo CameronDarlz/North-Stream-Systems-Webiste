@@ -37,84 +37,38 @@ export default function Header() {
         'fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300',
         scrolled ? 'backdrop-blur-sm bg-white/95' : ''
       )}
-      style={
-        scrolled
-          ? { boxShadow: '0 2px 20px rgba(30, 58, 95, 0.08)' }
-          : undefined
-      }
+      style={scrolled ? { boxShadow: '0 2px 20px rgba(30, 58, 95, 0.08)' } : undefined}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center mr-12 shrink-0" aria-label="North Stream Systems home">
+      {/* Desktop: 3-column grid — logo | nav | cta */}
+      <div className="max-w-7xl mx-auto px-6 hidden md:grid grid-cols-3 items-center h-16">
+
+        {/* Left — Logo */}
+        <div className="flex items-center">
+          <Link href="/" aria-label="North Stream Systems home">
             <Image
               src="/photos/North Stream Systems Logo Full.png"
               alt="North Stream Systems"
-              width={220}
-              height={60}
-              style={{ objectFit: 'contain', width: 'auto', height: '60px' }}
-              className="h-14 w-auto"
+              width={180}
+              height={48}
+              className="h-10 w-auto object-contain"
               priority
             />
           </Link>
-
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-6 flex-1">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    'text-sm font-medium transition-colors relative flex items-center gap-1.5 pb-0.5',
-                    isActive
-                      ? 'text-accent border-b-2 border-accent'
-                      : 'text-nss-text hover:text-accent border-b-2 border-transparent'
-                  )}
-                >
-                  {link.label}
-                  {link.badge && (
-                    <span className="text-[10px] font-semibold bg-accent text-white px-1.5 py-0.5 rounded-full leading-none">
-                      {link.badge}
-                    </span>
-                  )}
-                </Link>
-              )
-            })}
-          </div>
-
-          {/* CTA + Mobile toggle */}
-          <div className="flex items-center gap-3">
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex items-center bg-primary hover:bg-[#152A45] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
-            >
-              Get in Touch
-            </Link>
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 rounded-md text-nss-text hover:text-accent transition-colors"
-              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={mobileOpen}
-            >
-              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
-          </div>
         </div>
 
-        {/* Mobile menu */}
-        {mobileOpen && (
-          <div className="md:hidden border-t border-gray-100 py-4 space-y-1">
-            {navLinks.map((link) => (
+        {/* Centre — Nav links */}
+        <nav className="flex items-center justify-center gap-7" aria-label="Main navigation">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href
+            return (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'flex items-center gap-2 px-2 py-2.5 rounded-md text-sm font-medium transition-colors',
-                  pathname === link.href
-                    ? 'text-accent bg-surface'
-                    : 'text-nss-text hover:text-accent hover:bg-surface'
+                  'text-sm font-medium transition-colors flex items-center gap-1.5 pb-0.5 whitespace-nowrap',
+                  isActive
+                    ? 'text-accent border-b-2 border-accent'
+                    : 'text-nss-text hover:text-accent border-b-2 border-transparent'
                 )}
               >
                 {link.label}
@@ -124,19 +78,85 @@ export default function Header() {
                   </span>
                 )}
               </Link>
-            ))}
-            <div className="pt-2">
-              <Link
-                href="/contact"
-                className="block w-full text-center text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
-                style={{ backgroundColor: '#1E3A5F' }}
-              >
-                Get in Touch
-              </Link>
-            </div>
+            )
+          })}
+        </nav>
+
+        {/* Right — CTA */}
+        <div className="flex items-center justify-end">
+          <Link
+            href="/contact"
+            className="bg-primary hover:bg-[#152A45] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+          >
+            Get in Touch
+          </Link>
+        </div>
+
+      </div>
+
+      {/* Mobile: logo left, hamburger right */}
+      <div className="md:hidden max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+
+        {/* Logo */}
+        <Link href="/" aria-label="North Stream Systems home">
+          <Image
+            src="/photos/North Stream Systems Logo Full.png"
+            alt="North Stream Systems"
+            width={160}
+            height={44}
+            className="h-9 w-auto object-contain"
+            priority
+          />
+        </Link>
+
+        {/* Hamburger */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="p-2 rounded-md text-nss-text hover:text-accent transition-colors"
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+
+      </div>
+
+      {/* Mobile dropdown menu */}
+      {mobileOpen && (
+        <div
+          id="mobile-menu"
+          className="md:hidden border-t border-gray-100 bg-white px-4 py-4 space-y-1"
+        >
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                'flex items-center gap-2 px-2 py-2.5 rounded-md text-sm font-medium transition-colors',
+                pathname === link.href
+                  ? 'text-accent bg-surface'
+                  : 'text-nss-text hover:text-accent hover:bg-surface'
+              )}
+            >
+              {link.label}
+              {link.badge && (
+                <span className="text-[10px] font-semibold bg-accent text-white px-1.5 py-0.5 rounded-full leading-none">
+                  {link.badge}
+                </span>
+              )}
+            </Link>
+          ))}
+          <div className="pt-2">
+            <Link
+              href="/contact"
+              className="block w-full text-center bg-primary hover:bg-[#152A45] text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
+            >
+              Get in Touch
+            </Link>
           </div>
-        )}
-      </nav>
+        </div>
+      )}
     </header>
   )
 }
