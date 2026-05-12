@@ -48,9 +48,9 @@ export default function Header() {
             <Image
               src="/photos/North Stream Systems Logo Full.png"
               alt="North Stream Systems"
-              width={360}
-              height={96}
-              className="h-20 w-auto object-contain"
+              width={720}
+              height={192}
+              className="h-40 w-auto object-contain"
               priority
             />
           </Link>
