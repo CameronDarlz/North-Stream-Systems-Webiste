@@ -40,7 +40,7 @@ export default function Header() {
       style={scrolled ? { boxShadow: '0 2px 20px rgba(30, 58, 95, 0.08)' } : undefined}
     >
       {/* Desktop: 3-column grid — logo | nav | cta */}
-      <div className="max-w-7xl mx-auto px-6 hidden md:grid grid-cols-3 items-center h-44">
+      <div className="max-w-7xl mx-auto px-6 hidden md:grid grid-cols-3 items-center h-16">
 
         {/* Left — Logo */}
         <div className="flex items-center">
@@ -48,9 +48,9 @@ export default function Header() {
             <Image
               src="/photos/North Stream Systems Logo Full.png"
               alt="North Stream Systems"
-              width={720}
-              height={192}
-              className="h-40 w-auto object-contain"
+              width={180}
+              height={48}
+              className="h-10 w-auto object-contain"
               priority
             />
           </Link>
