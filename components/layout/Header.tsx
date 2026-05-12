@@ -88,10 +88,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
-              style={{ backgroundColor: '#1E3A5F' }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#152A45')}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#1E3A5F')}
+              className="hidden md:inline-flex items-center bg-primary hover:bg-[#152A45] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
             >
               Get in Touch
             </Link>

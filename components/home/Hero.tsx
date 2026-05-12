@@ -68,10 +68,7 @@ export default function Hero() {
         >
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center text-white font-semibold text-base px-8 py-4 rounded-lg transition-colors shadow-sm"
-            style={{ backgroundColor: '#1E3A5F' }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#152A45')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#1E3A5F')}
+            className="inline-flex items-center justify-center bg-primary hover:bg-[#152A45] text-white font-semibold text-base px-8 py-4 rounded-lg transition-colors shadow-sm"
           >
             Talk to Us
           </Link>

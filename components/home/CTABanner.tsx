@@ -26,18 +26,13 @@ export default function CTABanner() {
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">
           Ready to make IT one less thing to worry about?
         </h2>
-        <p
-          className="text-lg leading-relaxed mb-8 max-w-xl mx-auto"
-          style={{ color: '#AED6F1' }}
-        >
+        <p className="text-lg leading-relaxed mb-8 max-w-xl mx-auto" style={{ color: '#AED6F1' }}>
           Let&apos;s have a conversation about where your business is and where you want to go.
         </p>
         <Link
           href="/contact"
-          className="inline-flex items-center justify-center bg-white font-semibold text-base px-8 py-4 rounded-lg transition-colors shadow-sm"
+          className="inline-flex items-center justify-center bg-white hover:bg-[#AED6F1] font-semibold text-base px-8 py-4 rounded-lg transition-colors shadow-sm"
           style={{ color: '#1E3A5F' }}
-          onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#AED6F1')}
-          onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#ffffff')}
         >
           Book a Free Consultation
         </Link>
