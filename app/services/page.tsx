@@ -10,58 +10,77 @@ import {
   Lightbulb,
 } from 'lucide-react'
 import { type LucideIcon } from 'lucide-react'
-import ServiceTooltipButton from '@/components/services/ServiceTooltipButton'
 
 export const metadata: Metadata = {
-  title: 'Services',
+  title: 'Managed IT Services for UK SMBs | North Stream Systems',
+  description: 'From managed IT support to cybersecurity, Microsoft 365, cloud migration, and disaster recovery — North Stream Systems covers the full IT stack for UK small businesses.',
+  alternates: { canonical: 'https://northstreamsystems.com/services' },
+  openGraph: {
+    title: 'Managed IT Services for UK SMBs | North Stream Systems',
+    description: 'From managed IT support to cybersecurity, Microsoft 365, cloud migration, and disaster recovery — full IT stack for UK small businesses.',
+    url: 'https://northstreamsystems.com/services',
+    siteName: 'North Stream Systems',
+    locale: 'en_GB',
+    type: 'website',
+    images: [{ url: 'https://northstreamsystems.com/photos/North Stream Systems Logo Full.png', width: 1200, height: 630, alt: 'North Stream Systems Services' }],
+  },
+  twitter: { card: 'summary_large_image', title: 'Managed IT Services | North Stream Systems', description: 'Full IT stack for UK small businesses.' },
 }
 
 interface Service {
   icon: LucideIcon
   name: string
   description: string
+  href: string
 }
 
 const services: Service[] = [
   {
     icon: MonitorCheck,
     name: 'Managed IT Support',
+    href: '/services/managed-it-support',
     description:
       'Your technology needs constant attention — we provide it. Our helpdesk is staffed by experienced engineers who respond fast and fix things properly. Alongside reactive support, we proactively monitor your systems around the clock to catch issues before your team even notices them. No more scrambling when something breaks.',
   },
   {
     icon: ShieldCheck,
     name: 'Cybersecurity & Compliance',
+    href: '/services/cybersecurity-compliance',
     description:
       'Cyber threats are not going away, and SMBs are increasingly in the crosshairs. We implement layered, enterprise-grade security controls — from endpoint protection to email filtering to access management — and help you stay aligned with frameworks like Cyber Essentials. Secure by default, not as an afterthought.',
   },
   {
     icon: Cloud,
     name: 'Microsoft 365 Management',
+    href: '/services/microsoft-365-management',
     description:
       "Microsoft 365 is powerful, but only if it's configured correctly and kept secure. We handle everything: licence management, security hardening, Teams and SharePoint setup, and ongoing administration. You get the full value of your M365 investment without the complexity of managing it yourself.",
   },
   {
     icon: Server,
     name: 'Cloud Infrastructure & Migration',
+    href: '/services/cloud-infrastructure-migration',
     description:
       'Whether you\'re moving from on-premise servers, rationalising existing cloud spend, or building cloud-native from the start — we plan and execute migrations that minimise disruption and maximise efficiency. We manage your cloud infrastructure on an ongoing basis so it stays performant, secure, and cost-effective.',
   },
   {
     icon: HardDrive,
     name: 'Backup & Disaster Recovery',
+    href: '/services/backup-disaster-recovery',
     description:
       "Data loss is not just inconvenient — it can be catastrophic. We design and implement backup strategies that are appropriate to your business, and we test them regularly so you know they'll work when it matters. From ransomware recovery to accidental deletion, we have you covered.",
   },
   {
     icon: Wifi,
     name: 'Network & Connectivity',
+    href: '/services/network-connectivity',
     description:
       "A slow or unreliable network costs you more than you realise. We design, install, and manage network infrastructure that's fit for purpose — whether that's a single office, multiple sites, or a hybrid workforce. Secure Wi-Fi, VPNs, firewalls, and connectivity solutions built around how your business actually works.",
   },
   {
     icon: Lightbulb,
     name: 'IT Consultancy & Projects',
+    href: '/services/it-consultancy',
     description:
       'Sometimes you need expert input to make a big decision or lead a complex project. Our consultancy service gives you access to senior engineering expertise without the overhead of hiring full-time. From technology strategy to vendor selection to project delivery — we help you make smart choices and see them through.',
   },
@@ -108,7 +127,12 @@ export default function ServicesPage() {
                   <div className="flex-1">
                     <h2 className="text-2xl font-bold text-primary mb-3">{service.name}</h2>
                     <p className="text-muted leading-relaxed mb-5">{service.description}</p>
-                    <ServiceTooltipButton />
+                    <Link
+                      href={service.href}
+                      className="inline-flex items-center text-accent font-semibold hover:underline text-sm"
+                    >
+                      Learn more →
+                    </Link>
                   </div>
                 </div>
               )

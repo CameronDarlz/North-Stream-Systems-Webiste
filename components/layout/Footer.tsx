@@ -11,10 +11,18 @@ const quickLinks = [
 ]
 
 const serviceLinks = [
-  'Managed IT Support',
-  'Cybersecurity & Compliance',
-  'Microsoft 365 Management',
-  'Cloud Infrastructure & Migration',
+  { label: 'Managed IT Support', href: '/services/managed-it-support' },
+  { label: 'Cybersecurity & Compliance', href: '/services/cybersecurity-compliance' },
+  { label: 'Microsoft 365 Management', href: '/services/microsoft-365-management' },
+  { label: 'Cloud Infrastructure & Migration', href: '/services/cloud-infrastructure-migration' },
+]
+
+const locationLinks = [
+  { label: 'North Wales', href: '/locations/north-wales' },
+  { label: 'Llandudno', href: '/locations/llandudno' },
+  { label: 'Conwy', href: '/locations/conwy' },
+  { label: 'Gwynedd', href: '/locations/gwynedd' },
+  { label: 'Denbighshire', href: '/locations/denbighshire' },
 ]
 
 export default function Footer() {
@@ -23,7 +31,7 @@ export default function Footer() {
   return (
     <footer className="text-white" style={{ backgroundColor: '#1A1A2E' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           {/* Brand */}
           <div>
             <div className="mb-4">
@@ -70,12 +78,12 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 mb-6">
               {serviceLinks.map((service) => (
-                <li key={service}>
+                <li key={service.href}>
                   <Link
-                    href="/services"
+                    href={service.href}
                     className="text-sm text-white/60 hover:text-[#AED6F1] transition-colors"
                   >
-                    {service}
+                    {service.label}
                   </Link>
                 </li>
               ))}
@@ -91,8 +99,28 @@ export default function Footer() {
               >
                 office@northstreamsystems.com
               </a>
-              <p className="text-sm text-white/40">North Wales, UK</p>
+              <p className="text-sm text-white/40">Office 22, 16 Trinity Square</p>
+              <p className="text-sm text-white/40">Llandudno, LL30 2RB</p>
             </div>
+          </div>
+
+          {/* Areas We Serve */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4" style={{ color: '#AED6F1' }}>
+              Areas We Serve
+            </h3>
+            <ul className="space-y-2">
+              {locationLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-white/60 hover:text-[#AED6F1] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -102,9 +130,7 @@ export default function Footer() {
           style={{ borderColor: 'rgba(46,134,193,0.3)' }}
         >
           <div className="text-xs text-white/40 text-center sm:text-left">
-            &copy; {currentYear} North Stream Systems Ltd. All rights reserved.
-            <span className="ml-2 hidden sm:inline">|</span>
-            <span className="block sm:inline sm:ml-2">Registered in England &amp; Wales</span>
+            &copy; {currentYear} North Stream Systems. All rights reserved.
           </div>
           <div className="flex gap-4">
             {quickLinks.slice(0, 4).map((link) => (

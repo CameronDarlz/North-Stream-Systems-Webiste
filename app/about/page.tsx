@@ -3,7 +3,19 @@ import Link from 'next/link'
 import { Shield, CheckCircle, Handshake, Lock, User } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Us',
+  title: 'About Us | North Wales IT Support Company | North Stream Systems',
+  description: 'Based in Llandudno, North Stream Systems was built to give UK small businesses proactive, expert IT support without the jargon or surprise bills. Meet the team.',
+  alternates: { canonical: 'https://northstreamsystems.com/about' },
+  openGraph: {
+    title: 'About Us | North Wales IT Support Company | North Stream Systems',
+    description: 'Based in Llandudno, North Stream Systems was built to give UK small businesses proactive, expert IT support without the jargon or surprise bills.',
+    url: 'https://northstreamsystems.com/about',
+    siteName: 'North Stream Systems',
+    locale: 'en_GB',
+    type: 'website',
+    images: [{ url: 'https://northstreamsystems.com/photos/North Stream Systems Logo Full.png', width: 1200, height: 630, alt: 'North Stream Systems — About Us' }],
+  },
+  twitter: { card: 'summary_large_image', title: 'About Us | North Stream Systems', description: 'Based in Llandudno, North Stream Systems was built to give UK small businesses proactive IT support.' },
 }
 
 const values = [

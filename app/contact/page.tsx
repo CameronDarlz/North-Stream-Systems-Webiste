@@ -3,12 +3,47 @@ import { Mail, MapPin, Clock } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: 'Contact Us | Free IT Consultation | North Stream Systems',
+  description: 'Talk to the North Stream Systems team. We offer a free no-obligation IT consultation for businesses across North Wales and the UK. Based in Llandudno.',
+  alternates: { canonical: 'https://northstreamsystems.com/contact' },
+  openGraph: {
+    title: 'Contact Us | Free IT Consultation | North Stream Systems',
+    description: 'Talk to the North Stream Systems team. Free no-obligation IT consultation for North Wales businesses.',
+    url: 'https://northstreamsystems.com/contact',
+    siteName: 'North Stream Systems',
+    locale: 'en_GB',
+    type: 'website',
+    images: [{ url: 'https://northstreamsystems.com/photos/North Stream Systems Logo Full.png', width: 1200, height: 630, alt: 'Contact North Stream Systems' }],
+  },
+  twitter: { card: 'summary_large_image', title: 'Contact North Stream Systems', description: 'Free no-obligation IT consultation.' },
 }
 
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact North Stream Systems",
+          "url": "https://northstreamsystems.com/contact",
+          "description": "Get in touch with North Stream Systems for a free IT consultation.",
+          "mainEntity": {
+            "@type": "LocalBusiness",
+            "name": "North Stream Systems",
+            "email": "office@northstreamsystems.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Office 22, 16 Trinity Square",
+              "addressLocality": "Llandudno",
+              "addressRegion": "Conwy",
+              "postalCode": "LL30 2RB",
+              "addressCountry": "GB"
+            }
+          }
+        }) }}
+      />
       {/* Hero */}
       <section className="bg-surface pt-16 pb-20 border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -53,7 +88,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-primary mb-1">Location</p>
-                    <p className="text-muted text-sm">North Wales, UK</p>
+                    <p className="text-muted text-sm">Office 22, 16 Trinity Square</p>
+                    <p className="text-muted text-sm">Llandudno</p>
+                    <p className="text-muted text-sm">LL30 2RB</p>
                     <p className="text-muted text-xs mt-0.5">Serving businesses across the UK</p>
                   </div>
                 </div>

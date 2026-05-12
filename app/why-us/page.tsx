@@ -3,7 +3,19 @@ import Link from 'next/link'
 import { Check } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Why Us',
+  title: 'Why Choose North Stream Systems | Llandudno IT Support',
+  description: 'SLA-backed response times, transparent fixed pricing, and a security-first approach. See why North Wales businesses choose North Stream Systems as their IT partner.',
+  alternates: { canonical: 'https://northstreamsystems.com/why-us' },
+  openGraph: {
+    title: 'Why Choose North Stream Systems | Llandudno IT Support',
+    description: 'SLA-backed response times, transparent fixed pricing, and a security-first approach.',
+    url: 'https://northstreamsystems.com/why-us',
+    siteName: 'North Stream Systems',
+    locale: 'en_GB',
+    type: 'website',
+    images: [{ url: 'https://northstreamsystems.com/photos/North Stream Systems Logo Full.png', width: 1200, height: 630, alt: 'Why North Stream Systems' }],
+  },
+  twitter: { card: 'summary_large_image', title: 'Why North Stream Systems?', description: 'SLA-backed, transparent, security-first IT support.' },
 }
 
 const comparisonRows = [

@@ -70,6 +70,11 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const fd = new FormData(e.currentTarget)
+    if (fd.get('_honeypot')) {
+      setSubmitted(true)
+      return
+    }
     const validationErrors = validate(formData)
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors)
@@ -115,6 +120,14 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      {/* Honeypot */}
+      <input
+        type="text"
+        name="_honeypot"
+        style={{ display: 'none' }}
+        tabIndex={-1}
+        autoComplete="off"
+      />
       {/* Full Name */}
       <div>
         <Label.Root htmlFor="fullName" className="block text-sm font-medium text-nss-text mb-1.5">
